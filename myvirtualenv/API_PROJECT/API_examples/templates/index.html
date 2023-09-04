@@ -9,8 +9,16 @@
     <h3>Github API</h3>
     <form method="POST">
         <input type="text" name="username" required>
-        <input type="subnmit" value="Get Github Info">
+        {% csrf_token %}
+        <input type="submit" value="Get Github Infos">
     </form>
+
+    {% if user %}
+    <p>Username: {{ user.login }} </p>
+    <p> URL: {{ user.html_url }}</p>
+    <p> Repos: {{ user.public_repos }} </p>
+
+    {% endif %}
     
 </body>
 </html>
